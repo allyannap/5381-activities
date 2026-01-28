@@ -1,3 +1,5 @@
+# Example 1 from slides: Intro to API
+
 # !pip install requests # install library if haven’t yet
 
 # Load requests library
