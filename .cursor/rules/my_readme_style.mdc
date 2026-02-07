@@ -1,0 +1,117 @@
+---
+alwaysApply: true
+---
+
+# README Formatting Style Guide
+
+When creating or editing README or documentation Markdown files, follow these formatting preferences:
+
+## Headers
+
+- **H1 (`#`)**: Use ONLY for the main title. Include an em dash (`—`) for subtitles (e.g., `# Project Name — Documentation`).
+- **H2 (`##`)**: Use for major sections (Overview, API Endpoint & Parameters, Data Structure, Usage Instructions, Summary, etc.).
+- **H3 (`###`)**: Use for subsections within H2 sections (e.g., `### Parameters`, `### Variable codes`).
+- **No multiple H1s**: The document should have a single top-level title (H1), then H2 and below.
+
+## Icons and Emojis
+
+- **Add icons/emojis by headers**: Include relevant emojis/icons next to H2 section headers (e.g., `## 📋 Overview`, `## 🔧 API Endpoint & Parameters`, `## 📊 Data Structure`, `## 🚀 Usage Instructions`).
+- Use emojis sparingly and consistently—prefer standard documentation icons (📋, 🔧, 📊, 🚀, ⚙️, 📝, ✅, etc.).
+
+## Structure & Sections
+
+### Overview Section (First)
+
+- Start with a brief description (1–2 sentences) explaining what the script/tool does.
+- Follow with 3–5 bullet points for quick facts:
+  - **API:** [API name]
+  - **Data type:** [Type description]
+  - **Record count:** [Number of rows/records]
+  - **Use case:** [Primary use case]
+- Use bold sparingly for field labels only (e.g., `**API:**`, `**Data type:**`).
+
+### Horizontal Rules
+
+- Use `---` (three hyphens) between major sections for visual separation.
+- Place horizontal rules after the Overview section and between other major H2 sections.
+
+### Summary Section (Optional, at End)
+
+- Include a summary table at the end with key information:
+  - Columns: Item | Detail (or similar)
+  - Rows: Script, API, Endpoint, Records, Key fields, Config, etc.
+
+## Formatting Conventions
+
+### Bold Text
+
+- **Bold keywords sparingly**: Use bold (`**text**`) only for:
+  - Field labels in bullet lists (e.g., `**API:**`, `**Base URL:**`)
+  - Table headers when appropriate
+  - Extremely important terms (use sparingly)
+- Avoid bolding entire sentences or paragraphs.
+
+### Inline Code
+
+- Use backticks (`` ` ``) for:
+  - Filenames: `my_good_query.py`, `.env`
+  - Environment variables: `CENSUS_API_KEY`
+  - API endpoints: `https://api.census.gov/data/2024/acs/acs5`
+  - Variable names, parameter names, code terms
+  - Command-line commands: `python my_good_query.py`
+
+### Tables
+
+- Use tables for structured information:
+  - Parameters (Parameter | Description)
+  - Variable codes (Code | Description)
+  - Column layouts (Index | Header | Description)
+  - Summary information (Item | Value or Item | Detail)
+- Ensure clear, descriptive column headers.
+- Use bold in table cells only for labels or key terms (sparingly).
+
+### Code Blocks
+
+- Always specify the language in fenced code blocks:
+  - ` ```bash ` for shell commands
+  - ` ```python ` for Python code
+  - ` ```mermaid ` for Mermaid diagrams
+  - ` ```json ` for JSON examples
+- Use Mermaid for diagrams (flowcharts, sequence diagrams, etc.). Ensure Mermaid syntax is valid and renders correctly.
+
+## Text Colors (HTML Spans)
+
+When highlighting text with colors, use HTML spans:
+
+- **Purple for examples**: Wrap example text in `<span style="color: purple;">example text</span>`
+- **Before examples**: Precede with `<u>ex:</u>` (underlined "ex:") followed by the purple example
+- **Yellow for extremely important text**: Use `<span style="color: #FFD700; background-color: #FFFACD;">text</span>` sparingly for critical warnings or important notes
+- **Blue to draw attention**: Use `<span style="color: #0066CC;">text</span>` for words or phrases that need emphasis
+
+**Example format:**
+```markdown
+<u>ex:</u> <span style="color: purple;">This is an example in purple text</span>
+
+<span style="color: #FFD700; background-color: #FFFACD;">⚠️ CRITICAL: This is extremely important</span>
+
+Use <span style="color: #0066CC;">blue text</span> to highlight key terms.
+```
+
+## Tone & Writing Style
+
+- **Professional and very concise**: Write clearly and directly. Avoid unnecessary words.
+- **Second person**: Address the reader as "you" (e.g., "Run the script", "Configure your API key").
+- **Active voice**: Prefer active voice over passive (e.g., "The script queries..." not "Data is queried by the script...").
+- **Bullet lists**: Use bullet lists for options, features, or non-sequential information. Use numbered lists only for step-by-step instructions where order matters.
+
+## File References
+
+- **Script/config names**: Reference files by name with backticks (e.g., `my_good_query.py`, `.env`).
+- **Paths**: Use relative paths when referring to files in the repo (e.g., `5381-activities/README_my_good_query.md` or just the filename if in the same directory).
+- **Documentation links**: Include official documentation links in a "Documentation:" section with bullet list format.
+
+## Additional Best Practices
+
+- **Links**: Use descriptive link text, not raw URLs (e.g., `[ACS 5-Year Data Sets](url)`).
+- **Consistency**: Match the style of existing READMEs in the project (e.g., `README_my_good_query.md`) when creating or editing documentation.
+- **Mermaid diagrams**: Include both flowchart and sequence diagram examples when documenting API interactions or workflows. Ensure diagrams are properly formatted and valid.
