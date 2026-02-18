@@ -1,0 +1,7 @@
+Use the CSV file citizenship_by_state.csv (and optionally citizenship_rankings_summary.csv and data_dictionary.csv) in this folder.
+
+Report on:
+- Trends and patterns in non-citizen and foreign-born population across U.S. states (which states have the most non-citizens by count and by share of population).
+- Which states rank highest and lowest by non-citizen count, by percent non-citizen, and by foreign-born count.
+- Any notable geographic or demographic patterns (e.g. border states, large immigrant populations, naturalization rates).
+

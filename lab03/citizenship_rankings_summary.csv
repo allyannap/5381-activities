@@ -1,0 +1,91 @@
+state_name,non_citizen,metric,rank_type,pct_non_citizen,foreign_born
+California,4841377.0,non_citizen_count,top,,
+Texas,3080983.0,non_citizen_count,top,,
+Florida,2088458.0,non_citizen_count,top,,
+New York,1832210.0,non_citizen_count,top,,
+New Jersey,978810.0,non_citizen_count,top,,
+Illinois,892321.0,non_citizen_count,top,,
+Georgia,631256.0,non_citizen_count,top,,
+Washington,619052.0,non_citizen_count,top,,
+Massachusetts,587699.0,non_citizen_count,top,,
+North Carolina,560360.0,non_citizen_count,top,,
+Virginia,495696.0,non_citizen_count,top,,
+Arizona,493430.0,non_citizen_count,top,,
+Maryland,468006.0,non_citizen_count,top,,
+Pennsylvania,448580.0,non_citizen_count,top,,
+Michigan,316383.0,non_citizen_count,top,,
+Vermont,9946.0,non_citizen_count,bottom,,
+Wyoming,11332.0,non_citizen_count,bottom,,
+Montana,11901.0,non_citizen_count,bottom,,
+West Virginia,14690.0,non_citizen_count,bottom,,
+South Dakota,20496.0,non_citizen_count,bottom,,
+Alaska,21653.0,non_citizen_count,bottom,,
+North Dakota,21668.0,non_citizen_count,bottom,,
+Maine,26934.0,non_citizen_count,bottom,,
+New Hampshire,33518.0,non_citizen_count,bottom,,
+Mississippi,42670.0,non_citizen_count,bottom,,
+Delaware,49993.0,non_citizen_count,bottom,,
+District of Columbia,50710.0,non_citizen_count,bottom,,
+Idaho,62301.0,non_citizen_count,bottom,,
+Rhode Island,77113.0,non_citizen_count,bottom,,
+Nebraska,91773.0,non_citizen_count,bottom,,
+California,,pct_non_citizen,top,12.32,
+New Jersey,,pct_non_citizen,top,10.48,
+Texas,,pct_non_citizen,top,10.21,
+Florida,,pct_non_citizen,top,9.32,
+New York,,pct_non_citizen,top,9.23,
+Nevada,,pct_non_citizen,top,8.93,
+Massachusetts,,pct_non_citizen,top,8.34,
+Washington,,pct_non_citizen,top,7.92,
+Maryland,,pct_non_citizen,top,7.54,
+District of Columbia,,pct_non_citizen,top,7.44,
+Connecticut,,pct_non_citizen,top,7.05,
+Illinois,,pct_non_citizen,top,7.03,
+Hawaii,,pct_non_citizen,top,7.03,
+Rhode Island,,pct_non_citizen,top,7.0,
+Arizona,,pct_non_citizen,top,6.69,
+West Virginia,,pct_non_citizen,bottom,0.83,
+Montana,,pct_non_citizen,bottom,1.07,
+Mississippi,,pct_non_citizen,bottom,1.45,
+Vermont,,pct_non_citizen,bottom,1.54,
+Maine,,pct_non_citizen,bottom,1.94,
+Wyoming,,pct_non_citizen,bottom,1.95,
+Missouri,,pct_non_citizen,bottom,2.22,
+South Dakota,,pct_non_citizen,bottom,2.26,
+New Hampshire,,pct_non_citizen,bottom,2.4,
+Alabama,,pct_non_citizen,bottom,2.43,
+Ohio,,pct_non_citizen,bottom,2.45,
+Wisconsin,,pct_non_citizen,bottom,2.71,
+North Dakota,,pct_non_citizen,bottom,2.76,
+Kentucky,,pct_non_citizen,bottom,2.78,
+Louisiana,,pct_non_citizen,bottom,2.9,
+California,,foreign_born_count,top,,10598301.0
+Texas,,foreign_born_count,top,,5302466.0
+Florida,,foreign_born_count,top,,4905727.0
+New York,,foreign_born_count,top,,4526014.0
+New Jersey,,foreign_born_count,top,,2236554.0
+Illinois,,foreign_born_count,top,,1872449.0
+Massachusetts,,foreign_born_count,top,,1271206.0
+Georgia,,foreign_born_count,top,,1222778.0
+Washington,,foreign_born_count,top,,1206843.0
+Virginia,,foreign_born_count,top,,1142826.0
+Maryland,,foreign_born_count,top,,1030670.0
+Pennsylvania,,foreign_born_count,top,,1004975.0
+North Carolina,,foreign_born_count,top,,973325.0
+Arizona,,foreign_born_count,top,,957784.0
+Michigan,,foreign_born_count,top,,728881.0
+Wyoming,,foreign_born_count,bottom,,20494.0
+Montana,,foreign_born_count,bottom,,25679.0
+Vermont,,foreign_born_count,bottom,,27669.0
+West Virginia,,foreign_born_count,bottom,,32329.0
+South Dakota,,foreign_born_count,bottom,,35988.0
+North Dakota,,foreign_born_count,bottom,,36962.0
+Maine,,foreign_born_count,bottom,,56448.0
+Alaska,,foreign_born_count,bottom,,56745.0
+Mississippi,,foreign_born_count,bottom,,71918.0
+New Hampshire,,foreign_born_count,bottom,,85632.0
+District of Columbia,,foreign_born_count,bottom,,97388.0
+Delaware,,foreign_born_count,bottom,,109282.0
+Idaho,,foreign_born_count,bottom,,114849.0
+Nebraska,,foreign_born_count,bottom,,159084.0
+Arkansas,,foreign_born_count,bottom,,165740.0

@@ -1,0 +1,15 @@
+column,description
+state_name,"State or area name (e.g. California, District of Columbia)."
+state_fips,Census state FIPS code (2-digit string).
+total_population,Total population estimate.
+non_citizen,Estimate of people who are not U.S. citizens.
+naturalized,Estimate of naturalized U.S. citizens.
+foreign_born,Approximate foreign-born (naturalized + non_citizen).
+pct_non_citizen,Percent of total population that is non-citizen.
+pct_foreign_born,Percent of total population that is foreign-born.
+pct_naturalized,Percent of total population that is naturalized.
+non_citizen_per_100k,"Non-citizens per 100,000 population."
+foreign_born_per_100k,"Foreign-born per 100,000 population."
+rank_by_non_citizen_count,State rank by non-citizen count (1 = highest).
+rank_by_pct_non_citizen,State rank by pct non-citizen (1 = highest).
+rank_by_foreign_born_count,State rank by foreign-born count (1 = highest).
