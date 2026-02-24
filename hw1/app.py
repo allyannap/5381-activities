@@ -4,6 +4,13 @@ from shiny.express import input, render, ui
 from shiny import reactive
 from shinywidgets import render_plotly
 
+from ai_reporter_openai import (
+    build_summary_markdown,
+    call_openai,
+    save_docx,
+    save_text_and_markdown,
+)
+
 ROOT = Path(__file__).resolve().parent
 JOINED_CSV = ROOT / "census_vera_joined.csv"
 NATIONAL_CSV = ROOT / "data" / "national.csv"
@@ -173,14 +180,15 @@ with ui.div(id="app-shell"):
                 choices=[],
             )
 
-        ui.div(
-            {"class": "report-btn-wrap"},
-            ui.input_action_button(
-                "report_btn",
-                "Written Report and Analytic",
-                class_="btn btn-secondary",
-            ),
-        )
+            # Button at the bottom of the sidebar
+            ui.div(
+                {"class": "report-btn-wrap"},
+                ui.input_action_button(
+                    "report_btn",
+                    "Written Report and Analytic",
+                    class_="btn btn-secondary",
+                ),
+            )
 
         # Populate state choices
         @reactive.effect
@@ -342,38 +350,72 @@ with ui.div(id="app-shell"):
                             out = subset[[c for c in cols if c in subset.columns]].copy()
                             return out.rename(columns=rename_map).head(6)
 
-                # 🔎 Optional: short on-screen AI report triggered by the button
-                @render.ui
-                def report_output():
-                    return ui.div()
+                    # Area to show the AI report status
+                    with ui.card():
+                        ui.card_header("AI report status")
 
-                @reactive.effect
-                def _run_report_on_click():
-                    from pathlib import Path
+                        # simple reactive flag to know when a report has been created
+                        report_status = reactive.Value("idle")
 
-                    # Only react on actual button clicks (ignore initial 0)
-                    if input.report_btn() is None or input.report_btn() < 1:
-                        return
+                        @reactive.effect
+                        @reactive.event(input.report_btn)
+                        def _run_report_on_click():
+                            df = _load_state_data()
+                            states = input.state_select()
 
-                    txt_path = Path(__file__).resolve().parent / "ice_report.txt"
-                    if not txt_path.exists():
-                        report_output.set_ui(
-                            ui.p(
-                                "Run `ai_reporter_ollama.py` first to generate the AI report "
-                                "files (ice_report.txt / .md / .docx)."
-                            )
-                        )
-                        return
+                            if states:
+                                df = df[df["state_name"].astype(str).isin(states)]
 
-                    snippet = txt_path.read_text(encoding="utf-8").strip()
-                    # Keep the dashboard view compact – only show first ~400 words.
-                    words = snippet.split()
-                    if len(words) > 400:
-                        snippet = " ".join(words[:400]) + " ..."
+                            if df.empty:
+                                report_status.set("empty")
+                                return
 
-                    report_output.set_ui(
-                        ui.card(
-                            ui.card_header("Written Report and Analytics"),
-                            ui.pre(snippet),
-                        )
-                    )
+                            summary_md = build_summary_markdown(df)
+                            try:
+                                report_text = call_openai(summary_md)
+                            except Exception:
+                                report_status.set("error")
+                                return
+
+                            save_text_and_markdown(report_text)
+                            try:
+                                save_docx(report_text)
+                            except Exception:
+                                pass
+
+                            report_status.set("done")
+
+                        @reactive.effect
+                        @reactive.event(input.report_close)
+                        def _clear_report_status():
+                            report_status.set("idle")
+
+                        @render.ui
+                        def report_output():
+                            status = report_status.get()
+                            if status == "idle":
+                                return ui.div()
+                            if status == "empty":
+                                return ui.p(
+                                    "No data available for the selected states. "
+                                    "Please adjust your selection and try again."
+                                )
+                            if status == "error":
+                                return ui.p(
+                                    "There was an error while creating the report. "
+                                    "Please try again or check your AI configuration."
+                                )
+                            if status == "done":
+                                return ui.div(
+                                    ui.p(
+                                        "Report .docx created. "
+                                        "Please check ice_report.docx, ice_report.md, and ice_report.txt "
+                                        "in the hw1 folder for the full formatted version."
+                                    ),
+                                    ui.input_action_button(
+                                        "report_close",
+                                        "Return to dashboard",
+                                        class_="btn btn-outline-secondary mt-2",
+                                    ),
+                                )
+                            return ui.div()

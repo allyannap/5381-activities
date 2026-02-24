@@ -1,19 +1,14 @@
-"""AI reporter for ICE & Demographics dashboard using a local Ollama model.
+"""AI reporter for ICE & Demographics dashboard using OpenAI.
 
 This script:
 - Loads the joined census + Vera dataset from ``census_vera_joined.csv``.
 - Builds a compact summary of key state-level metrics.
-- Sends that summary to a local Ollama model to generate a narrative report.
+- Sends that summary to an OpenAI model to generate a narrative report.
 - Saves the report as plain text, markdown, and a formatted Word document.
 
 Run from the ``hw1`` directory after you have generated ``census_vera_joined.csv``::
 
-    python ai_reporter_ollama.py
-
-Make sure Ollama is running locally (default: http://localhost:11434)
-and that you have pulled a model such as ``llama3``::
-
-    ollama pull llama3
+    python ai_reporter_openai.py
 """
 
 from __future__ import annotations
@@ -119,7 +114,7 @@ def build_summary_markdown(df: pd.DataFrame) -> str:
     return "\n".join(lines)
 
 
-def call_ollama(summary_md: str) -> str:
+def call_openai(summary_md: str) -> str:
     """Send the summary to OpenAI and return the report text."""
     prompt = f"""You are an investigative data journalist writing about U.S. immigration enforcement.
 
@@ -158,12 +153,25 @@ Requirements:
 
 
 def save_text_and_markdown(report_text: str) -> None:
-    OUT_TXT.write_text(report_text, encoding="utf-8")
-    OUT_MD.write_text(report_text, encoding="utf-8")
+    """Save the report as plain text and markdown with a simple header."""
+    body = report_text.strip()
+    header = "ICE & Demographics – AI Report\n" + "=" * 40 + "\n\n"
+    formatted = header + body + "\n"
+
+    OUT_TXT.write_text(formatted, encoding="utf-8")
+    OUT_MD.write_text(formatted, encoding="utf-8")
 
 
 def save_docx(report_text: str) -> None:
+    """Save the report as a nicely formatted Word document."""
     doc = Document()
+
+    # Main title
+    doc.add_heading("ICE & Demographics – AI Report", level=1)
+
+    # Add a blank line between title and content
+    doc.add_paragraph("")
+
     for line in report_text.splitlines():
         if line.startswith("# "):
             doc.add_heading(line[2:].strip(), level=1)
@@ -185,9 +193,9 @@ def main() -> None:
 
     print("🤖 Contacting OpenAI model", OPENAI_MODEL)
     try:
-        report_text = call_ollama(summary_md)
+        report_text = call_openai(summary_md)
     except Exception as exc:  # noqa: BLE001
-        raise SystemExit(f"Error calling Ollama: {exc}") from exc
+        raise SystemExit(f"Error calling OpenAI: {exc}") from exc
 
     print("💾 Saving report to:")
     save_text_and_markdown(report_text)
