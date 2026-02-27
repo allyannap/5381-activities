@@ -2,7 +2,7 @@
 
 ## Overview
 
-`my_good_query.py` is a Python script that calls the **U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates** API to retrieve **citizenship-status demographics** for all U.S. states, the District of Columbia, and Puerto Rico. The result is a multi-row dataset suitable for reporting and analysis (e.g., dashboards, state-level comparisons, or demographic reports).
+`lab1.py` is a Python script that calls the **U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates** API to retrieve **citizenship-status demographics** for all U.S. states, the District of Columbia, and Puerto Rico. The result is a multi-row dataset suitable for reporting and analysis (e.g., dashboards, state-level comparisons, or demographic reports).
 
 - **API:** U.S. Census Bureau – ACS 5-Year Estimates (2024)  
 - **Data type:** Geographic / categorical (one row per state/territory)  
