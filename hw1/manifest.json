@@ -6,7 +6,7 @@
     "entrypoint": "shiny.express.app:app_2e_py"
   },
   "python": {
-    "version": "3.13.5",
+    "version": "3.11.13",
     "package_manager": {
       "name": "pip",
       "version": "26.0.1",
