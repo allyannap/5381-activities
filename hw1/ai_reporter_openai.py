@@ -35,8 +35,6 @@ load_dotenv(ROOT / ".env")
 
 # OpenAI configuration
 OPENAI_MODEL = "gpt-4.1-mini"  # adjust if you prefer a different model
-OPENAI_API_KEY = os.environ.get("OPENAI_API_KEY")
-client = OpenAI(api_key=OPENAI_API_KEY)
 
 
 def load_dataset(path: Path = DATA_PATH) -> pd.DataFrame:
@@ -116,6 +114,15 @@ def build_summary_markdown(df: pd.DataFrame) -> str:
 
 def call_openai(summary_md: str) -> str:
     """Send the summary to OpenAI and return the report text."""
+    api_key = os.environ.get("OPENAI_API_KEY")
+    if not api_key:
+        raise RuntimeError(
+            "OPENAI_API_KEY is not set. Add it as an environment variable in Posit Connect "
+            "or in a local .env file for local runs."
+        )
+
+    client = OpenAI(api_key=api_key)
+
     prompt = f"""You are an investigative data journalist writing about U.S. immigration enforcement.
 
 You are given a *summary* of state-level demographics and ICE detention activity.
