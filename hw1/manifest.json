@@ -17,9 +17,6 @@
     "requirements.txt": {
       "checksum": "0152bd1a68d9f7a7bdff0e341ef20ddf"
     },
-    ".env": {
-      "checksum": "5208fa3de8e6e96b0fb8a723d8285b18"
-    },
     "HEADER_SPACING_REFERENCE.md": {
       "checksum": "799594d5fafe1a69cd10e918ef93476f"
     },
