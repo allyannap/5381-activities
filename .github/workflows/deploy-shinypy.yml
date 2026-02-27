@@ -4,7 +4,7 @@ on:
   push:
     branches: [main]
     paths:
-      - '5381-activities/hw1/**'
+      - 'hw1/**'
       - '.github/workflows/deploy-shinypy.yml'
   workflow_dispatch:
 
@@ -26,6 +26,6 @@ jobs:
           url: ${{ secrets.CONNECT_SERVER }}
           api-key: ${{ secrets.CONNECT_API_KEY }}
           access-type: acl
-          dir: 5381-activities/hw1
+          dir: hw1
           force: false
 
