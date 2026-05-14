@@ -1,0 +1,33 @@
+ICE + Census Source Context (Synthetic Course Data)
+
+Notes:
+- Data below is extracted from course files.
+- ICE records are synthetic lab data (not real-world counts).
+- Use only the information provided here.
+
+ICE Table 1 (from 5381-activities/labs/lab4/ice_structured.csv)
+Columns: report_date, state, county_or_city, facility_name, demographic_group, citizenship_group, detention_count, prior_value, current_value, percent_change
+
+2025-09-01, CA, Los Angeles County, Adelanto ICE Processing Center, Latino, Non-US Citizen, 1510, 1410, 1510, 7.1
+2025-10-01, CA, Los Angeles County, Adelanto ICE Processing Center, Latino, Non-US Citizen, 1565, 1450, 1565, 7.9
+2025-11-01, TX, Webb County, South Texas ICE Complex, Latino, Non-US Citizen, 1844, 1690, 1844, 9.1
+2025-12-01, TX, Webb County, South Texas ICE Complex, Latino, Non-US Citizen, 1892, 1725, 1892, 9.7
+2025-11-01, FL, Broward County, Broward Transitional Center, Women, Caribbean / Latin America, 684, 630, 684, 8.6
+2025-12-01, FL, Broward County, Broward Transitional Center, Women, Caribbean / Latin America, 725, 658, 725, 10.2
+2025-10-01, AZ, Pinal County, Eloy Detention Center, Men 18-34, Non-US Citizen, 1695, 1578, 1695, 7.4
+2025-11-01, AZ, Pinal County, Florence Service Processing Center, Mixed, Non-US Citizen, 1410, 1326, 1410, 6.3
+
+Census Table A (state-level context from 5381-activities/hw1/census_vera_joined.csv)
+Columns shown: state_abbr, state_name, total_population, non_citizen, pct_non_citizen, foreign_born, pct_foreign_born, below_poverty, pct_below_poverty, ice_facility_count
+
+CA, California, 39287377, 4841377, 12.32, 10598301, 26.98, 4632248, 12.01, 124
+TX, Texas, 30503301, 3264724, 10.70, 5421296, 17.77, 4000930, 13.56, 73
+FL, Florida, 22416077, 2088458, 9.32, 4905727, 21.88, 2759397, 12.57, 90
+AZ, Arizona, 7378838, 493430, 6.69, 957784, 12.98, 901451, 12.48, 63
+NY, New York, 19852366, 1832210, 9.23, 4526014, 22.80, 2711742, 14.01, 91
+
+Required Public Questions
+- Where are ICE detention patterns concentrated?
+- Who appears most affected by counts and rates in available data?
+- Are there observable changes or trends over time?
+- What scale/rate caveats or missingness limits should be disclosed?
